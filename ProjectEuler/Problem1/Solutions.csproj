@@ -50,6 +50,8 @@
     <Compile Include="Problem5\V1.cs" />
     <Compile Include="Problem5\V2.cs" />
     <Compile Include="Problem6\V1.cs" />
+    <Compile Include="Problem7\V1.cs" />
+    <Compile Include="Problem7\V2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
