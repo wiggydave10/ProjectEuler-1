@@ -64,12 +64,6 @@
     <Compile Include="Problem2Tests.cs" />
     <Compile Include="Problem3Tests.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Problem1\Solutions.csproj">
-      <Project>{ae4633eb-78db-479c-a8ed-3ea459a22e0e}</Project>
-      <Name>Solutions</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
