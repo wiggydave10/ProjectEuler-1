@@ -10,8 +10,7 @@ namespace Solutions.Problem015
     {
         public static ulong LatticePathCount(int n)
         {
-            var pascalLine = Pascal(n*2);
-            return pascalLine.Skip(pascalLine.Count/ 2).First();
+            return Pascal(n * 2)[n];
         }
 
         public static IList<ulong> Pascal(int n)

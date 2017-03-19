@@ -23,5 +23,15 @@ namespace Solutions.Utils
         {
             return xs.Aggregate((a, b) => a*b);
         }
+
+        public static IEnumerable<TU> Map<T,TU>(this IEnumerable<T> xs, Func<T, TU> func)
+        {
+            return xs.Select(func);
+        }
+
+        public static IEnumerable<TU> Map<T, TU>(this IEnumerable<T> xs, Func<T, int, TU> func)
+        {
+            return xs.Select(func);
+        }
     }
 }
