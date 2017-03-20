@@ -55,6 +55,8 @@
     <Compile Include="ProblemTests001.cs" />
     <Compile Include="ProblemTests014.cs" />
     <Compile Include="ProblemTests013.cs" />
+    <Compile Include="ProblemTests019.cs" />
+    <Compile Include="ProblemTests018.cs" />
     <Compile Include="ProblemTests017.cs" />
     <Compile Include="ProblemTests016.cs" />
     <Compile Include="ProblemTests015.cs" />
@@ -80,7 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Problem013.txt" />
+    <Content Include="Resources\Problem018\large triangle.txt" />
+    <Content Include="Resources\Problem018\small triangle.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
