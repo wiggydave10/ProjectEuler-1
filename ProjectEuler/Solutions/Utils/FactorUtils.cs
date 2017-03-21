@@ -13,19 +13,28 @@ namespace Solutions.Utils
             return Enumerable.Range(1, n/2).Where(i => n%i == 0);
         }
 
-        public static IEnumerable<long> GetFactors(long n)
+        public static IEnumerable<long> GetProperFactors(long n)
         {
+            yield return 1;
             var lowestOtherFactor = n;
-            for (var i = 1; i < lowestOtherFactor; i++)
+            for (var i = 2; i < lowestOtherFactor; i++)
             {
                 if (n % i != 0) continue;
-                var otherFactor = n/i;
+                var otherFactor = n / i;
                 yield return i;
                 yield return otherFactor;
                 lowestOtherFactor = Math.Min(lowestOtherFactor, otherFactor);
             }
+        }
 
-            if (n == 1) yield return 1;
+        public static IEnumerable<long> GetFactors(long n)
+        {
+            foreach (var factor in GetProperFactors(n))
+            {
+                yield return factor;
+            }
+
+            yield return n;
         }
     }
 }
