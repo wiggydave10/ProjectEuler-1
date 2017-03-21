@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,16 @@ namespace Solutions.Utils
     public static class MiscUtils
     {
         public static IEnumerable<int> GetDigits(long n)
+        {
+            while (n >= 1)
+            {
+                var digit = n % 10;
+                n /= 10;
+                yield return (int)digit;
+            }
+        }
+
+        public static IEnumerable<int> GetDigits(this BigInteger n)
         {
             while (n >= 1)
             {
