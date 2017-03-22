@@ -55,6 +55,9 @@
     <Compile Include="ProblemTests001.cs" />
     <Compile Include="ProblemTests014.cs" />
     <Compile Include="ProblemTests013.cs" />
+    <Compile Include="ProblemTests025.cs" />
+    <Compile Include="ProblemTests024.cs" />
+    <Compile Include="ProblemTests023.cs" />
     <Compile Include="ProblemTests022.cs" />
     <Compile Include="ProblemTests021.cs" />
     <Compile Include="ProblemTests020.cs" />

@@ -22,7 +22,7 @@ namespace Solutions.Utils
                 if (n % i != 0) continue;
                 var otherFactor = n / i;
                 yield return i;
-                yield return otherFactor;
+                if (i != otherFactor) yield return otherFactor;
                 lowestOtherFactor = Math.Min(lowestOtherFactor, otherFactor);
             }
         }
