@@ -24,7 +24,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void Version1_CountingSundays_Answer()
+        public void Version1_CountingFirstSundays_Answer()
         {
             Assert.AreEqual(171, V1.CountingFirstSundays(DateTime.Parse("01/01/1901"), DateTime.Parse("31/12/2000")));
         }

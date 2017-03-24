@@ -12,13 +12,13 @@ namespace UnitTests
     public class ProblemTests016
     {
         [TestMethod]
-        public void Version1_LatticePathCount_15()
+        public void Version1_Sum2PowDigits_15()
         {
             Assert.AreEqual(26, V1.Sum2PowDigits(15));
         }
 
         [TestMethod]
-        public void Version1_LatticePathCount_1000()
+        public void Version1_Sum2PowDigits_1000()
         {
             Assert.AreEqual(1366, V1.Sum2PowDigits(1000));
         }
