@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests024
+    public class P024LexicographicPermutations
     {
         [TestMethod]
         public void Version1_LexicographicPermutations()

@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests014
+    public class P014LongestCollatzSequence
     {
         [TestMethod]
         public void Version1_FindLongestChainWithStartingNumberLessThanN()

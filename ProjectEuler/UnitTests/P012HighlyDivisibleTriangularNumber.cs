@@ -8,7 +8,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests012
+    public class P012HighlyDivisibleTriangularNumber
     {
         [TestMethod]
         public void Version1_TriangleNumberWithNDivisors()

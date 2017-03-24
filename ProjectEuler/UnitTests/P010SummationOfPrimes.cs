@@ -7,7 +7,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests010
+    public class P010SummationOfPrimes
     {
         [TestMethod]
         public void Version1Tests()

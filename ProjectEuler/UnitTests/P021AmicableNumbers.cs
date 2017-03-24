@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests021
+    public class P021AmicableNumbers
     {
         [TestMethod]
         public void Version1_AmicableSumUnderN()

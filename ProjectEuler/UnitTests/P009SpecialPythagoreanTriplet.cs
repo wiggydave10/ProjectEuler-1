@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Solutions.Problem002;
+using Solutions.Problem009;
 
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests002
+    public class P009SpecialPythagoreanTriplet
     {
         [TestMethod]
         public void Version1Tests()
         {
-            Assert.AreEqual(4613732, V1.SumEvenFib(100));
+            Assert.AreEqual(31875000, V1.Answer());
         }
     }
 }

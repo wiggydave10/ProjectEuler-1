@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests019
+    public class P019CountingSundays
     {
         [TestMethod]
         public void Version1_CountingSundays_local()

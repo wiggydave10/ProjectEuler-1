@@ -5,7 +5,7 @@ using Solutions.Problem001;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests001
+    public class P001Multiples
     {
         [TestMethod]
         public void Version1()

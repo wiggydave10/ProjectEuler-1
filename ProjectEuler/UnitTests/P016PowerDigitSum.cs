@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests016
+    public class P016PowerDigitSum
     {
         [TestMethod]
         public void Version1_Sum2PowDigits_15()

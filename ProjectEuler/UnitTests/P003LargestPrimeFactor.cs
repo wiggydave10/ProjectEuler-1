@@ -6,7 +6,7 @@ using Solutions.Problem003;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests003
+    public class P003LargestPrimeFactor
     {
         [TestMethod]
         public void UtilsTests()

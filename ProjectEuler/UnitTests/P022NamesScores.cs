@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests022
+    public class P022NamesScores
     {
         [TestMethod]
         public void Version1_SumNameScores()

@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Solutions.Problem009;
+using Solutions.Problem006;
 
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests009
+    public class P006SumSquareDifference
     {
         [TestMethod]
         public void Version1Tests()
         {
-            Assert.AreEqual(31875000, V1.Answer());
+            Assert.AreEqual(2640, V1.SumSquareSumDifference(10));
+            Assert.AreEqual(25164150, V1.SumSquareSumDifference(100));
         }
     }
 }

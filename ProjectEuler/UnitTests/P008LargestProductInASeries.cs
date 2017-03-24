@@ -7,7 +7,7 @@ using Solutions.Problem008;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests008
+    public class P008LargestProductInASeries
     {
         private const string N =  @"73167176531330624919225119674426574742355349194934
                                     96983520312774506326239578318016984801869478851843
@@ -32,7 +32,7 @@ namespace UnitTests
 
         private IEnumerable<int> digits;
 
-        public ProblemTests008()
+        public P008LargestProductInASeries()
         {
             digits = N.Where(ch => !char.IsWhiteSpace(ch)).Select(ch => int.Parse(ch.ToString()));
             Assert.AreEqual(1000, digits.Count());

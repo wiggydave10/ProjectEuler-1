@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests025
+    public class P025ThousandDigitFibonacciNumber
     {
         [TestMethod]
         public void Version1_FibIndexWithGreaterThanNDigits()

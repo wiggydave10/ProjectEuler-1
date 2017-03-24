@@ -8,7 +8,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests011
+    public class P011LargestProductInAGrid
     {
         private const int GridColumns = 20;
         private const int GridRows = 20;
@@ -36,7 +36,7 @@ namespace UnitTests
 
         private int[][] grid;
 
-        public ProblemTests011()
+        public P011LargestProductInAGrid()
         {
             var flatGrid = GridStr.Split(' ').Where(x => !string.IsNullOrWhiteSpace(x)).Select(int.Parse);
             grid = Enumerable.Range(0, GridRows).Select(i => flatGrid.Skip(i*GridColumns).Take(GridColumns).ToArray()).ToArray();

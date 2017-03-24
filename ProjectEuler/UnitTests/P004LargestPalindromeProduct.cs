@@ -6,7 +6,7 @@ using Solutions.Problem004;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests004
+    public class P004LargestPalindromeProduct
     {
         [TestMethod]
         public void RangeTests()

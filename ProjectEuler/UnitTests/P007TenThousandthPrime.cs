@@ -7,7 +7,7 @@ using Solutions.Problem007;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests007
+    public class P007TenThousandthPrime
     {
         [TestMethod]
         public void Version1Tests()

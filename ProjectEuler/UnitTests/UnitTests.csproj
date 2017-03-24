@@ -52,35 +52,35 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ProblemTests001.cs" />
-    <Compile Include="ProblemTests014.cs" />
-    <Compile Include="ProblemTests013.cs" />
-    <Compile Include="ProblemTests027.cs" />
-    <Compile Include="ProblemTests026.cs" />
-    <Compile Include="ProblemTests025.cs" />
-    <Compile Include="ProblemTests024.cs" />
-    <Compile Include="ProblemTests023.cs" />
-    <Compile Include="ProblemTests022.cs" />
-    <Compile Include="ProblemTests021.cs" />
-    <Compile Include="ProblemTests020.cs" />
-    <Compile Include="ProblemTests019.cs" />
-    <Compile Include="ProblemTests018.cs" />
-    <Compile Include="ProblemTests017.cs" />
-    <Compile Include="ProblemTests016.cs" />
-    <Compile Include="ProblemTests015.cs" />
+    <Compile Include="P001Multiples.cs" />
+    <Compile Include="P014LongestCollatzSequence.cs" />
+    <Compile Include="P013LargeSum.cs" />
+    <Compile Include="P027QuadraticPrimes.cs" />
+    <Compile Include="P026RecipricalCycles.cs" />
+    <Compile Include="P025ThousandDigitFibonacciNumber.cs" />
+    <Compile Include="P024LexicographicPermutations.cs" />
+    <Compile Include="P023NonAbundantSums.cs" />
+    <Compile Include="P022NamesScores.cs" />
+    <Compile Include="P021AmicableNumbers.cs" />
+    <Compile Include="P020FactorialDigitSum.cs" />
+    <Compile Include="P019CountingSundays.cs" />
+    <Compile Include="P018MaximumPathSumI.cs" />
+    <Compile Include="P017NumberLetterCounts.cs" />
+    <Compile Include="P016PowerDigitSum.cs" />
+    <Compile Include="P015LatticePaths.cs" />
     <Compile Include="UtilityTests.cs" />
-    <Compile Include="ProblemTests012.cs" />
-    <Compile Include="ProblemTests011.cs" />
-    <Compile Include="ProblemTests010.cs" />
-    <Compile Include="ProblemTests009.cs" />
-    <Compile Include="ProblemTests008.cs" />
-    <Compile Include="ProblemTests007.cs" />
-    <Compile Include="ProblemTests006.cs" />
-    <Compile Include="ProblemTests005.cs" />
-    <Compile Include="ProblemTests004.cs" />
+    <Compile Include="P012HighlyDivisibleTriangularNumber.cs" />
+    <Compile Include="P011LargestProductInAGrid.cs" />
+    <Compile Include="P010SummationOfPrimes.cs" />
+    <Compile Include="P009SpecialPythagoreanTriplet.cs" />
+    <Compile Include="P008LargestProductInASeries.cs" />
+    <Compile Include="P007TenThousandthPrime.cs" />
+    <Compile Include="P006SumSquareDifference.cs" />
+    <Compile Include="P005SmallestMultiple.cs" />
+    <Compile Include="P004LargestPalindromeProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProblemTests002.cs" />
-    <Compile Include="ProblemTests003.cs" />
+    <Compile Include="P002EvenFibonacciNumbers.cs" />
+    <Compile Include="P003LargestPrimeFactor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solutions\Solutions.csproj">

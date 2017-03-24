@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests015
+    public class P015LatticePaths
     {
         [TestMethod]
         public void Version1_LatticePathCount_2()

@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests018
+    public class P018MaximumPathSumI
     {
         [TestMethod]
         public void Version1_MaximumPathTriangle_small()

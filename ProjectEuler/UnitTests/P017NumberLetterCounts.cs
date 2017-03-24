@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests017
+    public class P017NumberLetterCounts
     {
         [TestMethod]
         public void Version1_Wordify_DoubleDigits()

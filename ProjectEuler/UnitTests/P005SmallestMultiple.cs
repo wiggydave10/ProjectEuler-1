@@ -7,7 +7,7 @@ using Solutions.Problem005;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests005
+    public class P005SmallestMultiple
     {
         [TestMethod]
         public void Version1Tests()

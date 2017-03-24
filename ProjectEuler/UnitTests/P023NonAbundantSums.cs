@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests023
+    public class P023NonAbundantSums
     {
         [TestMethod]
         public void Version1_NonAbundantSums()

@@ -9,11 +9,11 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests013
+    public class P013LargeSum
     {
         private int[][] numbers;
 
-        public ProblemTests013()
+        public P013LargeSum()
         {
             numbers =
                 File.ReadAllLines("../../Resources/Problem013.txt")

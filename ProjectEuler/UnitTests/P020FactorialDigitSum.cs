@@ -9,7 +9,7 @@ using Solutions.Utils;
 namespace UnitTests
 {
     [TestClass]
-    public class ProblemTests020
+    public class P020FactorialDigitSum
     {
         [TestMethod]
         public void Version1_FactorialDigitCount_10()
