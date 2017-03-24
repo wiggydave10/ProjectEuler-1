@@ -12,8 +12,8 @@ namespace Solutions.Utils
 
         private static IEnumerable<long> GetPrimes()
         {
-            var primes = new List<int>();
-            var curr = 1;
+            var primes = new List<long>();
+            var curr = 1L;
             while (true)
             {
                 if (!IsCoprimeOf(++curr, primes)) continue;
@@ -27,9 +27,14 @@ namespace Solutions.Utils
             return Primes.ElementAt(n - 1);
         }
 
-        private static bool IsCoprimeOf(int x, IEnumerable<int> ns)
+        public static bool IsCoprimeOf(long x, IEnumerable<long> ns)
         {
             return ns.All(i => x % i != 0);
+        }
+
+        public static bool IsPrime(long n)
+        {
+            return n >= 0 && IsCoprimeOf(n, GetPrimes().TakeWhile(p => p < n/2));
         }
     }
 }
