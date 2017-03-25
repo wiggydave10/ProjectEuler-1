@@ -19,9 +19,19 @@ namespace Solutions.Utils
             }
         }
 
+        public static double Sum(this IEnumerable<double> xs, Func<double, int, double> fn)
+        {
+            return xs.Select(fn).Sum();
+        }
+
         public static long Product(this IEnumerable<int> xs)
         {
             return xs.Aggregate((a, b) => a*b);
+        }
+
+        public static int Product(this IEnumerable<int> xs, Func<int,int> fn)
+        {
+            return xs.Select(fn).Aggregate((a, b) => a * b);
         }
 
         public static IEnumerable<TU> Map<T,TU>(this IEnumerable<T> xs, Func<T, TU> func)

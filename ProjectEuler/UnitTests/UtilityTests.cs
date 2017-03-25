@@ -34,6 +34,24 @@ namespace UnitTests
             AssertEqual(new long[] { 1, 2, 4, 7, 14, 28 }, FactorUtils.GetFactors((long)28));
         }
 
+        [TestMethod]
+        public void Maths_Polynomial_0()
+        {
+            Assert.AreEqual(1, Maths.Polynomial(41 / 3d, -15, 76 / 3d, 1)(0));
+        }
+
+        [TestMethod]
+        public void Maths_Polynomial_1()
+        {
+            Assert.AreEqual(25, Maths.Polynomial(41 / 3d, -15, 76 / 3d, 1)(1));
+        }
+
+        [TestMethod]
+        public void Maths_Polynomial_2()
+        {
+            Assert.AreEqual(101, Maths.Polynomial(41 / 3d, -15, 76 / 3d, 1)(2));
+        }
+
         private void AssertEqual<T>(IEnumerable<T> xs, IEnumerable<T> ys)
         {
             var xsArr = xs.OrderBy(x => x).ToArray();
