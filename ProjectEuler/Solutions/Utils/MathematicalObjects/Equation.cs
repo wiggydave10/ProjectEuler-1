@@ -24,11 +24,11 @@ namespace Solutions.Utils.MathematicalObjects
             var eq = this - Rhs;
             var others = eq.Lhs.Where(n => !v.Equals(n)).ToList();
             others.ForEach(n => eq.Lhs.Remove(n));
-            eq.Rhs.AddRange(others.Select(n => n.Minus()));
+            eq.Rhs.AddRange(others.Select(n => n * -1));
             if (!eq.Lhs.Any())
             {
                 eq.Rhs.Remove(v);
-                eq.Lhs.Add(v.Minus());
+                eq.Lhs.Add(v * -1);
             }
 
             eq.Divide(((Variable)eq.Lhs.First()).Coefficient);

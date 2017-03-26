@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,10 +26,14 @@ namespace Solutions.Utils.MathematicalObjects
             return new Constant(Value);
         }
 
-        public override Number Minus()
+        protected override Number Divide(double x)
         {
-            Value = -Value;
-            return this;
+            return new Constant(Value / x);
+        }
+
+        protected override Number Multiply(double x)
+        {
+            return new Constant(Value * x);
         }
 
         public override string ToString()
@@ -39,6 +44,11 @@ namespace Solutions.Utils.MathematicalObjects
         public static Constant operator +(Constant c1, Constant c2)
         {
             return new Constant(c1.Value + c2.Value);
+        }
+
+        public static Constant operator /(Constant c1, double x)
+        {
+            return (Constant)c1.Divide(x);
         }
     }
 }

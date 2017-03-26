@@ -32,10 +32,14 @@ namespace Solutions.Utils.MathematicalObjects
             return new Variable(Id, Coefficient);
         }
 
-        public override Number Minus()
+        protected override Number Divide(double x)
         {
-            Coefficient = -Coefficient;
-            return this;
+            return new Variable(Id, Coefficient / x);
+        }
+
+        protected override Number Multiply(double x)
+        {
+            return new Variable(Id, Coefficient * x);
         }
 
         public override string ToString()

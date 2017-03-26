@@ -72,7 +72,7 @@ namespace Solutions.Utils.MathematicalObjects
 
         public static Expression operator -(Expression ex, Number n)
         {
-            return new Expression(ex.Concat(new[] { n.Minus() })).Reduce();
+            return new Expression(ex.Concat(new[] { n * -1 })).Reduce();
         }
 
         public static Expression operator -(Expression ex1, Expression ex2)

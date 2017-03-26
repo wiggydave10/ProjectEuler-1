@@ -9,38 +9,14 @@ namespace Solutions.Utils.MathematicalObjects
     public abstract class Number
     {
         public abstract Number Clone();
-        public abstract Number Minus();
 
-        public static Number operator /(Number v1, double x)
-        {
-            var clone = v1.Clone();
-            if (v1.GetType() == typeof(Variable))
-            {
-                var cloneV = (Variable)clone;
-                cloneV.Coefficient /= x;
-                return cloneV;
+        protected abstract Number Divide(double x);
+        protected abstract Number Multiply(double x);
 
-            }
+        public static Number operator /(Number n, double x) => n.Divide(x);
+        //public static Number operator /(double x, Number n) => n.Divide(x);
 
-            var cloneC = (Constant)clone;
-            cloneC.Value /= x;
-            return cloneC;
-        }
-
-        public static Number operator *(Number v1, double x)
-        {
-            var clone = v1.Clone();
-            if (v1.GetType() == typeof(Variable))
-            {
-                var cloneV = (Variable)clone;
-                cloneV.Coefficient *= x;
-                return cloneV;
-
-            }
-
-            var cloneC = (Constant)clone;
-            cloneC.Value *= x;
-            return cloneC;
-        }
+        public static Number operator *(Number n, double x) => n.Multiply(x);
+        public static Number operator *(double x, Number n) => n.Multiply(x);
     }
 }
