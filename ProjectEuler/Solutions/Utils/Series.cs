@@ -55,6 +55,8 @@ namespace Solutions.Utils
             var lhs1 = new Expression(new []{a, d});
             var eq = new Equation(lhs1, new Expression(new Constant(101)));
 
+            var ex = eq.Get(a);
+
             var x = Resolve(eq);
         }
 
@@ -88,14 +90,9 @@ namespace Solutions.Utils
 
         public Variable[] Variables => Lhs.Variables.Concat(Rhs.Variables).ToArray();
 
-        private void Reduce()
-        {
-            
-        }
-
         public Expression Get(Variable v)
         {
-            var eq = Clone();
+            var eq = this - Rhs;
             var others = eq.Lhs.Where(n => !v.Equals(n)).ToList();
             others.ForEach(n => eq.Lhs.Remove(n));
             eq.Rhs.AddRange(others.Select(n => n.Minus()));
@@ -124,10 +121,19 @@ namespace Solutions.Utils
         {
             return $"{Lhs} = {Rhs}";
         }
+
+        public static Equation operator -(Equation eq, Expression ex)
+        {
+            return new Equation(eq.Lhs - ex, eq.Rhs - ex);
+        }
     }
 
     public class Expression : List<Number>
     {
+        public Expression() : base(new List<Number>())
+        {
+        }
+
         public Expression(IEnumerable<Number> ns) : base(ns)
         {
         }
@@ -158,7 +164,11 @@ namespace Solutions.Utils
 
             var reducedVariables = Variables.GroupBy(v => v.Id).Select(g => new Variable(g.Key, g.Select(v => v.Coefficient).Sum()));
             this.Clear();
-            this.AddRange(reducedVariables.Select(v => (Number)v).Concat(new [] {reducedConstant}));
+            var reduced = reducedVariables.Select(v => (Number) v).Concat(new[] {reducedConstant})
+                .Where(n => n.GetType() == typeof(Variable) && ((Variable) n).Coefficient != 0
+                            || n.GetType() == typeof(Constant) && ((Constant) n).Value != 0);
+            this.AddRange(reduced);
+
             return this;
         }
 
@@ -172,9 +182,24 @@ namespace Solutions.Utils
             return new Expression(ex.Select(n => n / d).ToList());
         }
 
+        public static Expression operator *(Expression ex, double d)
+        {
+            return new Expression(ex.Select(n => n * d).ToList());
+        }
+
         public static Expression operator +(Expression ex, Number n)
         {
             return new Expression(ex.Concat(new[] { n })).Reduce();
+        }
+
+        public static Expression operator -(Expression ex, Number n)
+        {
+            return new Expression(ex.Concat(new[] { n.Minus() })).Reduce();
+        }
+
+        public static Expression operator -(Expression ex1, Expression ex2)
+        {
+            return new Expression(ex1.Concat(ex2 * -1)).Reduce();
         }
     }
 
@@ -290,6 +315,22 @@ namespace Solutions.Utils
 
             var cloneC = (Constant)clone;
             cloneC.Value /= x;
+            return cloneC;
+        }
+
+        public static Number operator *(Number v1, double x)
+        {
+            var clone = v1.Clone();
+            if (v1.GetType() == typeof(Variable))
+            {
+                var cloneV = (Variable)clone;
+                cloneV.Coefficient *= x;
+                return cloneV;
+
+            }
+
+            var cloneC = (Constant)clone;
+            cloneC.Value *= x;
             return cloneC;
         }
     }
