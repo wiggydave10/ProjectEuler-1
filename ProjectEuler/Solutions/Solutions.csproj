@@ -83,7 +83,12 @@
     <Compile Include="Utils\EnumerableExtensions.cs" />
     <Compile Include="Utils\FactorUtils.cs" />
     <Compile Include="Utils\InfiniteSet.cs" />
+    <Compile Include="Utils\MathematicalObjects\Constant.cs" />
+    <Compile Include="Utils\MathematicalObjects\Equation.cs" />
+    <Compile Include="Utils\MathematicalObjects\Expression.cs" />
+    <Compile Include="Utils\MathematicalObjects\Number.cs" />
     <Compile Include="Utils\MathematicalObjects\Polynomial.cs" />
+    <Compile Include="Utils\MathematicalObjects\Variable.cs" />
     <Compile Include="Utils\Maths.cs" />
     <Compile Include="Utils\MiscUtils.cs" />
     <Compile Include="Utils\PrimeUtils.cs" />
