@@ -47,17 +47,26 @@ namespace Solutions.Utils
 
         public static void Resolve()
         {
-            var a = new Variable(1, 8);
-            var b = new Variable(2, 4);
-            var c = new Variable(3, 2);
-            var d = new Variable(4, 1);
+            var c1 = new Constant(3);
+            var c2 = new Constant(6);
+            var c3 = new Constant(11);
+            var a = new Variable(1, 1);
+            var b = new Variable(2, 1);
 
-            var lhs1 = new Expression(new []{a, d});
-            var eq = new Equation(lhs1, new Expression(new Constant(101)));
+            var lhs1 = new Expression(c1);
+            var rhs1 = new Expression(new [] { (Number)c2, a * -1, b * -1 });
+            var eq1 = new Equation(lhs1, rhs1);
 
-            var ex = eq.Get(a);
+            var lhs2 = new Expression(c1);
+            var rhs2 = new Expression(new[] { (Number)c3, a * -4, b * -2 });
+            var eq2 = new Equation(lhs2, rhs2);
 
-            var x = Resolve(eq);
+            var ex1 = eq1.Get(a);
+            var ex2 = eq2.Get(a);
+
+            var eq3 = new Equation(ex1, ex2);
+
+            var x = Resolve(eq3);
         }
 
         public static Tuple<Variable, double> Resolve(Equation eq)
@@ -65,7 +74,7 @@ namespace Solutions.Utils
             var variables = eq.Variables;
             if (!variables.Any()) return null;
 
-            if (variables.Length > 1) throw new Exception($"Can't resolve equation, too many unknowns: {eq}");
+            if (variables.Distinct().Count() > 1) throw new Exception($"Can't resolve equation, too many unknowns: {eq}");
 
             var variable = variables[0];
             return Tuple.Create(variable.GetSingle(), eq.Get(variable).Resolve());
