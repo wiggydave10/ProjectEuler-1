@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Solutions.Problem012;
 using Solutions.Utils;
 
-namespace UnitTests
+namespace UnitTests.UtilityTests
 {
     [TestClass]
-    public class UtilityTests
+    public class UtilityGeneralTests
     {
         [TestMethod]
         public void FactorUtils_GetFactors_1()

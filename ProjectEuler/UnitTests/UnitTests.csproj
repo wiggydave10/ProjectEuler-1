@@ -69,7 +69,8 @@
     <Compile Include="P017NumberLetterCounts.cs" />
     <Compile Include="P016PowerDigitSum.cs" />
     <Compile Include="P015LatticePaths.cs" />
-    <Compile Include="UtilityTests.cs" />
+    <Compile Include="UtilityTests\UtilitySeriesTests.cs" />
+    <Compile Include="UtilityTests\UtilityGeneralTests.cs" />
     <Compile Include="P012HighlyDivisibleTriangularNumber.cs" />
     <Compile Include="P011LargestProductInAGrid.cs" />
     <Compile Include="P010SummationOfPrimes.cs" />

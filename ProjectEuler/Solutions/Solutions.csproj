@@ -83,9 +83,11 @@
     <Compile Include="Utils\EnumerableExtensions.cs" />
     <Compile Include="Utils\FactorUtils.cs" />
     <Compile Include="Utils\InfiniteSet.cs" />
+    <Compile Include="Utils\MathematicalObjects\Polynomial.cs" />
     <Compile Include="Utils\Maths.cs" />
     <Compile Include="Utils\MiscUtils.cs" />
     <Compile Include="Utils\PrimeUtils.cs" />
+    <Compile Include="Utils\Series.cs" />
     <Compile Include="Utils\TriangleNumberUtils.cs" />
   </ItemGroup>
   <ItemGroup />
