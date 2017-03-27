@@ -70,15 +70,23 @@ namespace Solutions.Utils
             var x = Resolve(eq3);
         }
 
-        public static Tuple<Variable, double> Resolve(Equation eq)
+        public static Dictionary<Variable, double> Resolve(Equation[] es)
         {
-            var variables = eq.Variables;
+            var resolved = es.Where(e => e.Variables.Distinct().Count() == 1)
+                .ToDictionary(e => e.Variables[0].GetSingle(), e => e.Get(e.Variables[0]).Resolve());
+
+            return resolved;
+        }
+
+        public static Tuple<Variable, double> Resolve(Equation equation)
+        {
+            var variables = equation.Variables;
             if (!variables.Any()) return null;
 
-            if (variables.Distinct().Count() > 1) throw new Exception($"Can't resolve equation, too many unknowns: {eq}");
+            if (variables.Distinct().Count() > 1) throw new Exception($"Can't resolve equation, too many unknowns: {equation}");
 
             var variable = variables[0];
-            return Tuple.Create(variable.GetSingle(), eq.Get(variable).Resolve());
+            return Tuple.Create(variable.GetSingle(), equation.Get(variable).Resolve());
         }
 
         public static string ToSubstring(int x)
