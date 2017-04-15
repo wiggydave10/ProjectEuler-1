@@ -75,6 +75,13 @@ namespace Solutions.Utils
             var resolved = es.Where(e => e.Variables.Distinct().Count() == 1)
                 .ToDictionary(e => e.Variables[0].GetSingle(), e => e.Get(e.Variables[0]).Resolve());
 
+            var variables = es.SelectMany(e => e.Variables).Distinct();
+            foreach (var variable in variables)
+            {
+                var ves = es.Where(e => e.Variables.Contains(variable));
+
+            }
+
             return resolved;
         }
 
