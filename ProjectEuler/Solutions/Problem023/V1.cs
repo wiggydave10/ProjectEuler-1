@@ -16,18 +16,18 @@ namespace Solutions.Problem023
             const int limit = 28123;
             for (var i = 1; i <= limit; i++)
             {
-                if (HasNoTwoSum(abundants, i)) ret.Add(i);
+                if (!IsSumOfTwo(abundants, i)) ret.Add(i);
                 if (i.IsAbundant()) abundants.Add(i);
             }
 
             return ret.Sum();
         }
 
-        public static bool HasNoTwoSum(SortedSet<int> set, int n)
+        public static bool IsSumOfTwo(SortedSet<int> set, int n)
         {
             var lowerHalf = set.GetViewBetween(0, n/2);
             var upperHalf = set.GetViewBetween(n/2, n);
-            return lowerHalf.All(t => !upperHalf.Contains(n - t));
+            return lowerHalf.Any(t => upperHalf.Contains(n - t));
         }
 
         public static bool IsDeficient(this int n)
