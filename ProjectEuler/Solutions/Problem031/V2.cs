@@ -30,27 +30,49 @@ namespace Solutions.Problem031
 
         public static int TreeBuilding(int n)
         {
-            var inital = Enumerable.Repeat(1, n);
+            var frontierStates = new List<int[]>{ Enumerable.Repeat(1, n).ToArray() };
+            var allStates = new List<int[]>(frontierStates);
+
+            while (frontierStates.Any())
+            {
+                var newFrontier = new List<int[]>();
+                var smallestGreatest = int.MaxValue;
+                foreach (var state in frontierStates.OrderByDescending(x => x.Max()))
+                {
+                    var maxCoin = state.Max();
+                    var choices = CoinChildren.OrderBy(x => x.Key).Where(x => x.Key < smallestGreatest).TakeWhile(x => x.Value.Max() <= maxCoin).Select(x => x.Key);
+                    var options = Branch(state, choices);
+
+                    newFrontier.AddRange(options);
+                    smallestGreatest = maxCoin;
+                }
+
+                frontierStates = newFrontier;
+                allStates.AddRange(frontierStates);
+            }
+
+            return allStates.Count();
         }
 
-        public static int[][] Branch(int[] combination)
+        public static int[][] Branch(int[] combination, IEnumerable<int> choices)
         {
             var dict = combination.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
             var res = new List<int[]>();
-            foreach (var coin in CoinChildren)
+            foreach (var coinKey in choices)
             {
-                var valuesDict = coin.Value.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
-                if (!new HashSet<int>(valuesDict.Keys).Overlaps(dict.Keys)) continue;
+                var children = CoinChildren[coinKey];
+                var valuesDict = children.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
+                if (!new HashSet<int>(valuesDict.Keys).IsSubsetOf(dict.Keys)) continue;
                 if (valuesDict.Keys.Any(k => valuesDict[k] > dict[k])) continue;
 
                 var copy = new List<int>();
                 copy.AddRange(combination);
-                foreach (var value in coin.Value)
+                foreach (var value in children)
                 {
                     copy.Remove(value);
                 }
 
-                copy.Add(coin.Key);
+                copy.Add(coinKey);
                 res.Add(copy.ToArray());
             }
 

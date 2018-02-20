@@ -29,5 +29,29 @@ namespace UnitTests
         {
             V1.GetCombinations(200, new HashSet<int> { 1, 2, 5, 10, 20, 50, 100 }).ShouldBe(0);
         }
+
+        [TestMethod]
+        public void Version2_5()
+        {
+            V2.TreeBuilding(5).ShouldBe(4);
+        }
+
+        [TestMethod]
+        public void Version2_10()
+        {
+            V2.TreeBuilding(10).ShouldBe(11);
+        }
+
+        [TestMethod]
+        public void Version2_20()
+        {
+            V2.TreeBuilding(20).ShouldBe(11);
+        }
+
+        [TestMethod]
+        public void Version2_200()
+        {
+            V2.TreeBuilding(200).ShouldBe(0);
+        }
     }
 }
