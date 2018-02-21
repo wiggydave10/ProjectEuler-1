@@ -83,6 +83,7 @@
     <Compile Include="Problem028\V3.cs" />
     <Compile Include="Problem028\V2.cs" />
     <Compile Include="Problem028\V1.cs" />
+    <Compile Include="Problem031\V3.cs" />
     <Compile Include="Problem031\V2.cs" />
     <Compile Include="Problem031\V1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

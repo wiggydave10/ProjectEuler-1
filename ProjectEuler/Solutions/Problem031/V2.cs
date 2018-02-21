@@ -17,66 +17,64 @@ namespace Solutions.Problem031
     */
     public static class V2
     {
-        private static Dictionary<int, int[]> CoinChildren = new Dictionary<int, int[]>
+        public static int CoinCounting(int n)
         {
-            { 2, new []{ 1, 1 } },
-            { 5, new []{ 1, 2, 2 } },
-            { 10, new []{ 5, 5 } },
-            { 20, new []{10, 10} },
-            { 50, new[] {10, 20, 20} },
-            { 100, new[] {50, 50} },
-            { 200, new []{100, 100} }
-        };
+            var coinCount = new CoinCount(n);
+            var i = 1;
+            while (Step(coinCount)) i++;
 
-        public static int TreeBuilding(int n)
-        {
-            var frontierStates = new List<int[]>{ Enumerable.Repeat(1, n).ToArray() };
-            var allStates = new List<int[]>(frontierStates);
-
-            while (frontierStates.Any())
-            {
-                var newFrontier = new List<int[]>();
-                var smallestGreatest = int.MaxValue;
-                foreach (var state in frontierStates.OrderByDescending(x => x.Max()))
-                {
-                    var maxCoin = state.Max();
-                    var choices = CoinChildren.OrderBy(x => x.Key).Where(x => x.Key < smallestGreatest).TakeWhile(x => x.Value.Max() <= maxCoin).Select(x => x.Key);
-                    var options = Branch(state, choices);
-
-                    newFrontier.AddRange(options);
-                    smallestGreatest = maxCoin;
-                }
-
-                frontierStates = newFrontier;
-                allStates.AddRange(frontierStates);
-            }
-
-            return allStates.Count();
+            return i;
         }
 
-        public static int[][] Branch(int[] combination, IEnumerable<int> choices)
+        public static bool Step(CoinCount coinCount)
         {
-            var dict = combination.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
-            var res = new List<int[]>();
-            foreach (var coinKey in choices)
+            var coin = 2;
+            while (coin <= coinCount.Total)
             {
-                var children = CoinChildren[coinKey];
-                var valuesDict = children.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
-                if (!new HashSet<int>(valuesDict.Keys).IsSubsetOf(dict.Keys)) continue;
-                if (valuesDict.Keys.Any(k => valuesDict[k] > dict[k])) continue;
-
-                var copy = new List<int>();
-                copy.AddRange(combination);
-                foreach (var value in children)
+                if (coinCount.CanBuild(coin))
                 {
-                    copy.Remove(value);
+                    coinCount.Build(coin);
+                    return true;
                 }
 
-                copy.Add(coinKey);
-                res.Add(copy.ToArray());
+                coinCount.Break(coin);
+                coin = CoinCount.Coins.OrderBy(x => x).FirstOrDefault(x => x > coin);
+                if (coin == 0) break;
             }
 
-            return res.ToArray();
+            return false;
+        }
+    }
+
+    public class CoinCount
+    {
+        public static int[] Coins = new[] {1, 2, 5, 10, 20, 50, 100, 200};
+        private Dictionary<int, int> coinCount = Coins.ToDictionary(x => x, x => 0);
+
+        public CoinCount(int total)
+        {
+            coinCount[1] = total;
+        }
+
+        public int Total => coinCount.Sum(x => x.Key * x.Value);
+
+        public bool CanBuild(int coin)
+        {
+            return coinCount[1] >= coin;
+        }
+
+        // Create the given coin from 1 pences
+        public void Build(int coin)
+        {
+            coinCount[1] -= coin;
+            coinCount[coin]++;
+        }
+
+        // Break up all of the given coin into 1 pences
+        public void Break(int coin)
+        {
+            coinCount[1] += coinCount[coin] * coin;
+            coinCount[coin] = 0;
         }
     }
 }
