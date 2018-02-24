@@ -9,26 +9,26 @@ namespace Solutions.Utils
 {
     public static class MiscUtils
     {
-        public static IEnumerable<int> GetDigits(int n)
+        public static IEnumerable<int> GetDigits(int n, int b = 10)
         {
-            return GetDigits((long)n);
+            return GetDigits((long)n, b);
         }
-        public static IEnumerable<int> GetDigits(long n)
+        public static IEnumerable<int> GetDigits(long n, int b = 10)
         {
             while (n >= 1)
             {
-                var digit = n % 10;
-                n /= 10;
+                var digit = n % b;
+                n /= b;
                 yield return (int)digit;
             }
         }
 
-        public static IEnumerable<int> GetDigits(this BigInteger n)
+        public static IEnumerable<int> GetDigits(this BigInteger n, int b = 10)
         {
             while (n >= 1)
             {
-                var digit = n % 10;
-                n /= 10;
+                var digit = n % b;
+                n /= b;
                 yield return (int)digit;
             }
         }
