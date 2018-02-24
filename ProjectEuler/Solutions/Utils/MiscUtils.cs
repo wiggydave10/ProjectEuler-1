@@ -9,6 +9,10 @@ namespace Solutions.Utils
 {
     public static class MiscUtils
     {
+        public static IEnumerable<int> GetDigits(int n)
+        {
+            return GetDigits((long)n);
+        }
         public static IEnumerable<int> GetDigits(long n)
         {
             while (n >= 1)
@@ -27,6 +31,11 @@ namespace Solutions.Utils
                 n /= 10;
                 yield return (int)digit;
             }
+        }
+
+        public static int DigitsToNumber(this IEnumerable<int> digits)
+        {
+            return (int) digits.Select((x, i) => new {x, i}).Sum(p => Math.Pow(10, p.i) * p.x);
         }
 
         public static int[] Add(int[] a, int[] b)

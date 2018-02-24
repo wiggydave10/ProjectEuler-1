@@ -83,6 +83,7 @@
     <Compile Include="Problem028\V3.cs" />
     <Compile Include="Problem028\V2.cs" />
     <Compile Include="Problem028\V1.cs" />
+    <Compile Include="Problem032\V1.cs" />
     <Compile Include="Problem031\V3.cs" />
     <Compile Include="Problem031\V2.cs" />
     <Compile Include="Problem031\V1.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Utils\MiscUtils.cs" />
     <Compile Include="Utils\PrimeUtils.cs" />
     <Compile Include="Utils\Series.cs" />
+    <Compile Include="Utils\SetUtils.cs" />
     <Compile Include="Utils\TriangleNumberUtils.cs" />
   </ItemGroup>
   <ItemGroup />
