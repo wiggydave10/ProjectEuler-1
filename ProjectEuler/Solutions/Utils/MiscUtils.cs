@@ -38,6 +38,11 @@ namespace Solutions.Utils
             return (int) digits.Select((x, i) => new {x, i}).Sum(p => Math.Pow(10, p.i) * p.x);
         }
 
+        public static long DigitsToNumber(this IEnumerable<long> digits)
+        {
+            return (long)digits.Select((x, i) => new { x, i }).Sum(p => Math.Pow(10, p.i) * p.x);
+        }
+
         public static int[] Add(int[] a, int[] b)
         {
             var rSmaller = (a.Length < b.Length) ? a.Reverse().ToArray() : b.Reverse().ToArray();
