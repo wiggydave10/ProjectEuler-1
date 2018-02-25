@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P041PandigitalPrimes.cs" />
     <Compile Include="P040ChampernownesConstant.cs" />
     <Compile Include="P039IntegerRightTriangles.cs" />
     <Compile Include="P038PandigitalMultiples.cs" />
