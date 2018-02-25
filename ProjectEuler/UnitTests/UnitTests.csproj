@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P042CodedTriangleNumbers.cs" />
     <Compile Include="P041PandigitalPrimes.cs" />
     <Compile Include="P040ChampernownesConstant.cs" />
     <Compile Include="P039IntegerRightTriangles.cs" />
@@ -115,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Resources\Problem042\Words.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
