@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P046GoldbachsOtherConjecture.cs" />
     <Compile Include="P045TriangularPentagonalHexagonal.cs" />
     <Compile Include="P044PentagonNumbers.cs" />
     <Compile Include="P043SubstringDivisibility.cs" />

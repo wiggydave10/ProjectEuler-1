@@ -10,10 +10,15 @@ namespace Solutions.Utils
     {
         public static IEnumerable<long> Primes => GetPrimes();
 
-        private static IEnumerable<long> GetPrimes()
+        public static long NextPrime(IEnumerable<long> primes)
         {
-            var primes = new List<long>();
-            var curr = 1L;
+            return GetPrimes(primes).First();
+        }
+
+        private static IEnumerable<long> GetPrimes(IEnumerable<long> prevPrimes = null)
+        {
+            var primes = new SortedSet<long>(prevPrimes ?? new long[0]);
+            var curr = primes.Max > 0 ? primes.Max : 1L;
             while (true)
             {
                 if (!IsCoprimeOf(++curr, primes)) continue;
