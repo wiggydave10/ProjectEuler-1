@@ -32,28 +32,31 @@ namespace Solutions.Problem047
         public static long Main(int distinctCount)
         {
             var primes = new List<long>{2};
-            var prevPrimeFactors = new Stack<HashSet<PrimeFactor>>();
+            var min = 2L;
+            var count = 0;
             var n = 2L;
-            while (prevPrimeFactors.Count != distinctCount)
+            while (count != distinctCount)
             {
                 if (primes.Last() < n) primes.Add(PrimeUtils.NextPrime(primes));
                 // stop collecting factors if more than distinct count
-                var factors = new HashSet<PrimeFactor>(GetPrimeFactors(n, primes).TakeWhile((x,i) => i <= distinctCount));
 
-                if (factors.Count != distinctCount)
+                if (GetPrimeFactors(n, primes).TakeWhile((x, i) => i <= distinctCount).Count() == distinctCount)
                 {
-                    prevPrimeFactors.Clear();
+                    if (count == 0)
+                    {
+                        min = n;
+                    }
+                    count++;
                 }
                 else
                 {
-                    prevPrimeFactors = new Stack<HashSet<PrimeFactor>>(prevPrimeFactors.TakeWhile(fs => !fs.Overlaps(factors)).Reverse());
-                    prevPrimeFactors.Push(factors);
+                    count = 0;
                 }
 
                 n++;
             }
 
-            return prevPrimeFactors.Last().Select(x => x.Value).Aggregate((a, b) => a * b);
+            return min;
         }
 
         public static IEnumerable<PrimeFactor> GetPrimeFactors(long n, List<long> primes)
