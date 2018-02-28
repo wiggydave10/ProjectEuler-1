@@ -13,15 +13,9 @@ namespace Solutions.Problem025
     {
         public static int FibIndexWithGreaterThanNDigits(int n)
         {
-            var i = 1;
-            foreach (var f in Fib())
-            {
-                if (f.GetDigits().Count() == n) return i;
-                i++;
-            }
-
-            // wont get here
-            return 0;
+            return Fib()
+                .Select((x, i) => new {n = x.ToString().Length, i})
+                .First(x => x.n == n).i + 1;
         }
 
         public static IEnumerable<BigInteger> Fib()
