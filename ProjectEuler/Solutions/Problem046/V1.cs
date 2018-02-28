@@ -29,7 +29,7 @@ namespace Solutions.Problem046
     */
     public static class V1
     {
-        public static long Get()
+        public static long Main()
         {
             var primes = new SortedSet<long>();
             var twiceSquares = new SortedSet<long>{0}; // apparently zero is a square...

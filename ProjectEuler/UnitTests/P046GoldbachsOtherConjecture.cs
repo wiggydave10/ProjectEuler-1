@@ -27,7 +27,7 @@ namespace UnitTests
         [TestMethod]
         public void Version1_Answer()
         {
-            V1.Get().ShouldBe(5777);
+            V1.Main().ShouldBe(5777);
         }
     }
 }
