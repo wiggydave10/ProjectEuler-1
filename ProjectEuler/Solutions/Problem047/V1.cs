@@ -31,12 +31,12 @@ namespace Solutions.Problem047
     {
         public static long Main(int distinctCount)
         {
-            var primes = new SortedSet<long>();
+            var primes = new List<long>{2};
             var prevPrimeFactors = new Stack<HashSet<PrimeFactor>>();
             var n = 2L;
             while (prevPrimeFactors.Count != distinctCount)
             {
-                if (primes.Max < n) primes.Add(PrimeUtils.NextPrime(primes));
+                if (primes.Last() < n) primes.Add(PrimeUtils.NextPrime(primes));
                 // stop collecting factors if more than distinct count
                 var factors = new HashSet<PrimeFactor>(GetPrimeFactors(n, primes).TakeWhile((x,i) => i <= distinctCount));
 
@@ -56,9 +56,9 @@ namespace Solutions.Problem047
             return prevPrimeFactors.Last().Select(x => x.Value).Aggregate((a, b) => a * b);
         }
 
-        public static IEnumerable<PrimeFactor> GetPrimeFactors(long n, SortedSet<long> primes)
+        public static IEnumerable<PrimeFactor> GetPrimeFactors(long n, List<long> primes)
         {
-            if (primes.Max == n)
+            if (primes.Last() == n)
             {
                 yield return new PrimeFactor(n, 1);
                 yield break;
