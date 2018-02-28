@@ -64,7 +64,7 @@ namespace Solutions.Problem047
                 yield break;
             }
 
-            foreach (var prime in primes.GetViewBetween(2, n))
+            foreach (var prime in primes)
             {
                 var exponant = 0;
                 var remainder = n;
