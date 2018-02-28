@@ -20,7 +20,7 @@ namespace UnitTests
         [TestMethod]
         public void Version1_DistinctPowers_Question()
         {
-            Assert.AreEqual(19316, V1.DigitPowers(5, 1000000));
+            Assert.AreEqual(443839, V1.DigitPowers(5, 1000000));
         }
     }
 }

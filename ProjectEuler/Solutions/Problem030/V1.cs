@@ -38,7 +38,7 @@ namespace Solutions.Problem030
 
         public static bool IsSpecial(long n, int power)
         {
-            return Math.Abs(MiscUtils.GetDigits(n).Sum(x => Math.Pow(x, power)) - n) < Double.Epsilon;
+            return Math.Abs(MiscUtils.GetDigits(n).Sum(x => (long)Math.Pow(x, power)) - n) == 0;
         }
     }
 }
