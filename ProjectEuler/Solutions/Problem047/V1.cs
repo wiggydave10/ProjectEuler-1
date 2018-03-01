@@ -32,31 +32,19 @@ namespace Solutions.Problem047
         public static long Main(int distinctCount)
         {
             var primes = new List<long>{2};
-            var min = 2L;
             var count = 0;
             var n = 2L;
             while (count != distinctCount)
             {
                 if (primes.Last() < n) primes.Add(PrimeUtils.NextPrime(primes));
                 // stop collecting factors if more than distinct count
+                var primeFactors = GetPrimeFactors(n, primes).TakeWhile((x, i) => i <= distinctCount);
 
-                if (GetPrimeFactors(n, primes).TakeWhile((x, i) => i <= distinctCount).Count() == distinctCount)
-                {
-                    if (count == 0)
-                    {
-                        min = n;
-                    }
-                    count++;
-                }
-                else
-                {
-                    count = 0;
-                }
-
+                count = primeFactors.Count() == distinctCount ? count + 1 : 0;
                 n++;
             }
 
-            return min;
+            return n - distinctCount;
         }
 
         public static IEnumerable<PrimeFactor> GetPrimeFactors(long n, List<long> primes)
