@@ -21,6 +21,7 @@ namespace Solutions.Utils
             var curr = primes.Max > 0 ? primes.Max : 1L;
             while (true)
             {
+                //if (!IsCoprimeOf(curr += 2, primes)) continue;
                 if (!IsCoprimeOf(++curr, primes)) continue;
                 yield return curr;
                 primes.Add(curr);
@@ -34,7 +35,8 @@ namespace Solutions.Utils
 
         public static bool IsCoprimeOf(long x, IEnumerable<long> ns)
         {
-            return ns.All(i => x % i != 0);
+            var limit = (long)Math.Sqrt(x);
+            return ns.Where(n => n <= limit).All(n => x % n != 0);
         }
 
         public static bool IsPrime(long n)
