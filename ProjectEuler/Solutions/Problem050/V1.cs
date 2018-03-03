@@ -33,36 +33,19 @@ namespace Solutions.Problem050
 
         public static long MaxConsecutivePrimeSum(IEnumerable<long> primes)
         {
-            var arr = primes.ToArray();
-            var primeSet = new SortedSet<long>(arr);
-            var max = primeSet.Max;
+            var primesArr = primes.ToArray();
+            var primeSet = new SortedSet<long>(primesArr);
+            var maxPrime = primeSet.Max;
 
-            var sum = 0L;
-            var i = 0;
-            foreach (var prime in arr)
-            {
-                if (sum > max) break;
-                sum += prime;
-                i++;
-            }
-
-            for (; i >= 0; i--)
-            {
-                var maxSum = 0L;
-                foreach (var window in arr.GetWindows(i))
-                {
-                    var sum2 = window.Sum();
-                    if (sum2 > max) break;
-
-                    if (primeSet.Contains(sum2))
-                    {
-                        return sum2;
-                    }
-                }
-            }
-
-            // shouldn't normally get here
-            return 0;
+            var tmpSum = 0L;
+            return Enumerable.Range(0, primesArr.Length)
+                .TakeWhile(i => (tmpSum += primesArr[i]) < maxPrime)
+                .Reverse()
+                .Select(i => primesArr.GetWindows(i)
+                    .Select(window => window.Sum())
+                    .TakeWhile(sum => sum <= maxPrime)
+                    .FirstOrDefault(primeSet.Contains))
+                .First(x => x > 0);
         }
     }
 }
