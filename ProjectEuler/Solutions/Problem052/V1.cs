@@ -26,7 +26,7 @@ namespace Solutions.Problem052
             var curr = 2;
             var currHash = PermutatedHash(curr);
 
-            while (Enumerable.Range(2, n - 2).Select(i => PermutatedHash(curr * i)).Any(x => x != currHash))
+            while (Enumerable.Range(2, n - 1).Select(i => PermutatedHash(curr * i)).Any(x => x != currHash))
             {
                 currHash = PermutatedHash(++curr);
             }
