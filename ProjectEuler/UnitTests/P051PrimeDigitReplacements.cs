@@ -34,7 +34,7 @@ namespace UnitTests
         [TestMethod]
         public void Version1_Answer()
         {
-            V1.Main().First(x => x.Length == 8).First().ShouldBe(56003);
+            V1.Main().First(x => x.Length == 8).First().ShouldBe(121313);
         }
     }
 }

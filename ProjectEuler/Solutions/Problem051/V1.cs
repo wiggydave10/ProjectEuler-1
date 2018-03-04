@@ -50,9 +50,8 @@ namespace Solutions.Problem051
                         var familyPrimes = family.Where(x => primes.Contains(x)).ToArray();
 
                         yield return familyPrimes;
-                        //primesTodo.ExceptWith(familyPrimes);
+                        primesTodo.ExceptWith(familyPrimes);
                     }
-                    primesTodo.Remove(todo);
                 }
 
                 digits++;
@@ -66,7 +65,7 @@ namespace Solutions.Problem051
 
             for (var count = 1; count < digits.Length; count++)
             {
-                foreach (var replacedIndexes in positions.GetWindows(count))
+                foreach (var replacedIndexes in positions.Choose(count))
                 {
                     var rets = new List<long>();
                     for (var i = 0; i < 10; i++)
