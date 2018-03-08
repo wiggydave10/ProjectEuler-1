@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P054PokerHands.cs" />
     <Compile Include="P053CombinatoricSelections.cs" />
     <Compile Include="P052PermutedMultiples.cs" />
     <Compile Include="P051PrimeDigitReplacements.cs" />
@@ -124,6 +125,7 @@
     <Content Include="Resources\Problem018\large triangle.txt" />
     <Content Include="Resources\Problem018\small triangle.txt" />
     <Content Include="Resources\Problem022\names.txt" />
+    <Content Include="Resources\Problem054\PokerHands.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
