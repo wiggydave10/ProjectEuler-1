@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P055LychrelNumbers.cs" />
     <Compile Include="P054PokerHands.cs" />
     <Compile Include="P053CombinatoricSelections.cs" />
     <Compile Include="P052PermutedMultiples.cs" />

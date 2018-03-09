@@ -48,5 +48,11 @@ namespace Solutions.Utils
         {
             return !xs.Select((i, j) => i - j).Distinct().Skip(1).Any();
         }
+
+        public static bool IsPalendrome<T>(this IEnumerable<T> xs)
+        {
+            var arr = xs.ToArray();
+            return arr.SequenceEqual(arr.Reverse());
+        }
     }
 }
