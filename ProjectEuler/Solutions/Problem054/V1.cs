@@ -119,7 +119,7 @@ namespace Solutions.Problem054
 
         private static bool IsStraight(V1Hand hand)
         {
-            return Math.Abs(hand.Cards.OrderBy(x => x.Rank).Sum(x => x.Rank - hand.Cards[0].Rank)) == 10;
+            return hand.Cards.Select(x => x.Rank).OrderBy(x => x).IsConsecutive();
         }
 
         public static bool operator <(V1Hand h1, V1Hand h2)

@@ -43,5 +43,10 @@ namespace Solutions.Utils
         {
             return xs.Select(func);
         }
+
+        public static bool IsConsecutive(this IEnumerable<int> xs)
+        {
+            return !xs.Select((i, j) => i - j).Distinct().Skip(1).Any();
+        }
     }
 }

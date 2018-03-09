@@ -121,6 +121,7 @@ namespace UnitTests
         public void Version1_Practise_Straight()
         {
             new V1Hand(GetHand("9D KH QH JH TH")).HandType.ShouldBe(PokerHandType.Straight);
+            new V1Hand(GetHand("2D 2H 4H 6H 6S")).HandType.ShouldNotBe(PokerHandType.Straight);
         }
 
         [TestMethod]
@@ -151,6 +152,7 @@ namespace UnitTests
         public void Version1_Practise_2Pair()
         {
             new V1Hand(GetHand("AH AD 3S 3D 2C")).HandType.ShouldBe(PokerHandType.TwoPair);
+            new V1Hand(GetHand("2D 2H 4H 6H 6S")).HandType.ShouldBe(PokerHandType.TwoPair);
         }
 
         [TestMethod]
@@ -172,7 +174,7 @@ namespace UnitTests
                 .Select(GetHands)
                 .Select(p => new {H1 = new V1Hand(p.Item1), H2 = new V1Hand(p.Item2)})
                 .Count(p => p.H1 > p.H2)
-                .ShouldBe(0);
+                .ShouldBe(376);
         }
     }
 }
