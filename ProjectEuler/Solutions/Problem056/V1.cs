@@ -30,11 +30,6 @@ namespace Solutions.Problem056
                 {
                     var digitSum = BigInteger.Pow(i, j).GetDigits().Sum();
                     maxDigitSum = Math.Max(maxDigitSum, digitSum);
-
-                    if (digitSum == maxDigitSum)
-                    {
-                        
-                    }
                 }
             }
 
