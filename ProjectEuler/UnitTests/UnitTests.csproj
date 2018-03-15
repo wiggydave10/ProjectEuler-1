@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P058SpiralPrimes.cs" />
     <Compile Include="P057SquareRootConvergents.cs" />
     <Compile Include="P056PowerfulDigitSum.cs" />
     <Compile Include="P055LychrelNumbers.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="P017NumberLetterCounts.cs" />
     <Compile Include="P016PowerDigitSum.cs" />
     <Compile Include="P015LatticePaths.cs" />
+    <Compile Include="UtilityTests\UtilityExPrimeUtilTests.cs" />
     <Compile Include="UtilityTests\UtilitySeriesTests.cs" />
     <Compile Include="UtilityTests\UtilityGeneralTests.cs" />
     <Compile Include="P012HighlyDivisibleTriangularNumber.cs" />
