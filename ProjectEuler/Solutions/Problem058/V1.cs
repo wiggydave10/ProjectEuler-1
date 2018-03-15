@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -38,36 +39,21 @@ namespace Solutions.Problem058
     {
         public static long Main()
         {
-            var primes = new HashSet<long>(PrimeUtils.Primes.TakeWhile(p => p < 8000000));
-
             var primeCount = 3d;
             var numberCount = 5d;
 
             var n = 9L;
             var d = 4L;
 
-            while (primeCount / numberCount > 0.1)
+            while (primeCount / numberCount >= 0.1)
             {
-                //while (primes.Last() < n) primes.Add(PrimeUtils.NextPrime(primes));
-
-                primeCount += Enumerable.Range(0, 4).Select(i => n += d).Count(x => primes.Contains(x));
+                primeCount += Enumerable.Range(0, 4).Select(i => n += d).Count(PrimeUtils.IsPrimeBasic);
                 numberCount += 4;
 
                 d += 2;
             }
 
             return d + 1;
-        }
-
-        public static IEnumerable<long> SpiralCornerNumbers()
-        {
-            var n = 1;
-            var d = 2;
-            while (true)
-            {
-                for (var i = 0; i < 4; i++) yield return n += d;
-                d += 2;
-            }
         }
     }
 }
