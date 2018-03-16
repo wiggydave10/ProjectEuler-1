@@ -37,60 +37,18 @@ namespace Solutions.Problem059
         decrypt the message and find the sum of the ASCII values in the original text.
     */
 
-    public static class V1
+    public static class V2
     {
-        private static string[] CommonWords = new[]
+        public static string Decrypt(byte[] ciphertext, int keyLength)
         {
-            "the", "of", "and", "to", "a", "in", "for", "is", "on", "that", "by", "this", "with", "i", "you", "it",
-            "not", "or", "be", "are", "from", "at", "as", "your", "all", "have", "new", "more", "an", "was", "we"
-        };
-
-        /// <summary>
-        /// Using the clues: keyLength, English words, Key is lowercase (implies alphabetical)
-        /// This function brute forces all possible keys and looks for a crude list of common english words
-        /// Surprised this worked off the bat.
-        /// </summary>
-        public static string CheatDecrypt(byte[] ciphertext)
-        {
-            var scored = new Dictionary<string, int>();
-
-            foreach (var key in PossibleKeys())
-            {
-                var plaintext = XOR(ciphertext, key);
-                var plainString = BytesToString(plaintext);
-                var score = CommonWords.Count(word => plainString.Contains(word));
-                scored.Add(plainString, score);
-            }
-
-            return scored.OrderByDescending(p => p.Value).First().Key;
-        }
-
-        public static string BytesToString(byte[] text)
-        {
-            return new string(text.Select(b => (char)b).ToArray());
-        }
-
-        public static byte[] XOR(byte[] text, byte[] key)
-        {
-            return Enumerable.Repeat(key, (int)Math.Ceiling(text.Length / 3d))
-                .SelectMany(x => x)
-                .Take(text.Length)
-                .Select((b, i) => (byte)(b ^ text[i]))
+            var alphabets = ciphertext
+                .Select((ch, i) => new {ch, i})
+                .GroupBy(p => p.i % keyLength)
+                .Select(g => g.Select(x => x.ch).GroupBy(ch => ch).ToDictionary(x => x.Key, x => x.Count()))
                 .ToArray();
-        }
 
-        public static IEnumerable<byte[]> PossibleKeys()
-        {
-            for (var i = 'a'; i <= 'z'; i++)
-            {
-                for (var j = 'a'; j <= 'z'; j++)
-                {
-                    for (var k = 'a'; k <= 'z'; k++)
-                    {
-                        yield return new[] {(byte) i, (byte) j, (byte) k};
-                    }
-                }
-            }
+
+            return null;
         }
     }
 }

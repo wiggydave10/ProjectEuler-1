@@ -133,6 +133,7 @@
     <Content Include="Resources\Problem022\names.txt" />
     <Content Include="Resources\Problem054\PokerHands.txt" />
     <Content Include="Resources\Problem059\ciphertext.txt" />
+    <Content Include="Resources\Problem059\plaintext.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
