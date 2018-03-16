@@ -60,6 +60,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P059XORDecryption.cs" />
     <Compile Include="P058SpiralPrimes.cs" />
     <Compile Include="P057SquareRootConvergents.cs" />
     <Compile Include="P056PowerfulDigitSum.cs" />
@@ -131,6 +132,7 @@
     <Content Include="Resources\Problem018\small triangle.txt" />
     <Content Include="Resources\Problem022\names.txt" />
     <Content Include="Resources\Problem054\PokerHands.txt" />
+    <Content Include="Resources\Problem059\ciphertext.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
