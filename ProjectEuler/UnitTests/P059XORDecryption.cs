@@ -24,5 +24,11 @@ namespace UnitTests
         {
             V1.CheatDecrypt(Ciphertext).ShouldBe(Plaintext);
         }
+
+        [TestMethod]
+        public void Version2_Answer()
+        {
+            V2.Decrypt(Ciphertext, 3).ShouldBe(Plaintext);
+        }
     }
 }

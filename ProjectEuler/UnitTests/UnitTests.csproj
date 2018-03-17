@@ -133,11 +133,13 @@
     <Content Include="Resources\Problem022\names.txt" />
     <Content Include="Resources\Problem054\PokerHands.txt" />
     <Content Include="Resources\Problem059\ciphertext.txt" />
+    <Content Include="Resources\Problem059\ciphertextStr.txt" />
     <Content Include="Resources\Problem059\plaintext.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Resources\Problem042\Words.txt" />
+    <None Include="Resources\Problem059\letter_frequencies_english.csv" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

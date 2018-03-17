@@ -134,7 +134,11 @@
     <Compile Include="Utils\SetUtils.cs" />
     <Compile Include="Utils\TriangleNumberUtils.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Level3\Problem059\Research\byte xor combinations.png" />
+    <Content Include="Level3\Problem059\Research\characterFrequencies.html" />
+    <Content Include="Level3\Problem059\Research\XOR.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
