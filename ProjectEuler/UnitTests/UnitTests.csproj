@@ -40,6 +40,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -60,6 +63,7 @@
     <Compile Include="P014LongestCollatzSequence.cs" />
     <Compile Include="P013LargeSum.cs" />
     <Compile Include="P028NumberSpiralDiagonals.cs" />
+    <Compile Include="P060PrimePairs.cs" />
     <Compile Include="P059XORDecryption.cs" />
     <Compile Include="P058SpiralPrimes.cs" />
     <Compile Include="P057SquareRootConvergents.cs" />
@@ -137,6 +141,7 @@
     <Content Include="Resources\Problem059\plaintext.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
     <Content Include="Resources\Problem042\Words.txt" />
     <None Include="Resources\Problem059\letter_frequencies_english.csv" />

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,9 @@ namespace Solutions.Utils
 {
     public static class PrimeUtils
     {
+        private const string PrimesFileKey = "Primes";
         public static IEnumerable<long> Primes => GetPrimes();
+        public static IEnumerable<long> FilePrimes => GetFilePrimes();
 
         public static long NextPrime(IEnumerable<long> primes)
         {
@@ -61,6 +65,17 @@ namespace Solutions.Utils
             }
 
             return true;
+        }
+
+        private static IEnumerable<long> GetFilePrimes()
+        {
+            var primeFilename = ConfigurationManager.AppSettings[PrimesFileKey];
+            if (File.Exists(primeFilename))
+            {
+                return File.ReadAllText(primeFilename).Split(',').Select(long.Parse);
+            }
+
+            return null;
         }
     }
 }
