@@ -31,76 +31,100 @@ namespace Solutions.Problem060
         {
             var links = new List<(long p1, long p2)>();
 
-            var primeSet = new HashSet<long>(PrimeUtils.FilePrimes.TakeWhile(x => x <= 999999));
-            var primes = PrimeUtils.FilePrimes.TakeWhile(x => x <= 999).ToArray();
+            var primeSet = new HashSet<long>(PrimeUtils.FilePrimes);
+            var maxPrime = primeSet.Last();
+            var primes = PrimeUtils.FilePrimes.ToArray();
             for (var i = 0; i < primes.Length; i++)
             {
+                var p1 = primes[i];
+                if (p1 == 2 || p1 == 5) continue;
+
                 for (var j = i+1; j < primes.Length; j++)
                 {
-                    var p1 = primes[i];
                     var p2 = primes[j];
+                    if (p2 == 2 || p2 == 5) continue;
 
-                    var p1p2 = long.Parse(p1.ToString() + p2.ToString());
-                    var p2p1 = long.Parse(p2.ToString() + p1.ToString());
+                    var p1Str = p1.ToString();
+                    var p2Str = p2.ToString();
 
-                    if (primeSet.Contains(p1p2) && primeSet.Contains(p2p1))
+                    var p1p2 = long.Parse(p1Str + p2Str);
+                    var p2p1 = long.Parse(p2Str + p1Str);
+
+                    if (p1p2 < maxPrime)
                     {
-                        links.Add((p1, p2));
+                        if (primeSet.Contains(p1p2) && primeSet.Contains(p2p1))
+                        {
+                            links.Add((p1, p2));
+                        }
                     }
+                    else
+                    {
+                        break;
+                    }
+
                 }
             }
 
-            var conn3 = ConnectedSignatures3(links).ToArray();
-            var conn4 = ConnectedSignatures4(links).ToArray();
-            var conn5 = ConnectedSignatures5(links).ToArray();
+            //var conn3 = ConnectedSignatures3(new HashSet<ValueTuple<long, long>>(links)).ToArray();
+            var conn4 = ConnectedSignatures4(new HashSet<ValueTuple<long, long>>(links)).OrderBy(x => x.Item1 + x.Item2 + x.Item3 + x.Item4).ToArray();
+            //var conn5 = ConnectedSignatures5(new HashSet<ValueTuple<long, long>>(links)).ToArray();
             return 0;
         }
 
-        public static IEnumerable<(long p1, long p2, long p3)> ConnectedSignatures3(List<(long p1, long p2)> links)
+        public static IEnumerable<(long p1, long p2, long p3)> ConnectedSignatures3(HashSet<(long p1, long p2)> links)
         {
             foreach (var g in links.GroupBy(x => x.p1))
             {
-                var p2Pairs = g.Select(x => x.p2).Choose(2);
-                foreach (var pair in p2Pairs)
+                var pairs = Choose2(g.Select(x => x.p2));
+                foreach (var pair in pairs)
                 {
-                    var l = (pair.Min(), pair.Max());
-                    if (links.Contains(l))
+                    if (links.Contains(pair) || links.Contains((pair.b, pair.a)))
                     {
-                        yield return (g.Key, l.Item1, l.Item2);
+                        yield return (g.Key, pair.a, pair.b);
                     }
                 }
             }
         }
 
-        public static IEnumerable<(long p1, long p2, long p3, long p4)> ConnectedSignatures4(List<(long p1, long p2)> links)
+        private static IEnumerable<(T a, T b)> Choose2<T>(IEnumerable<T> ts)
+        {
+            var tsArr = ts.ToArray();
+            for (var i = 0; i < tsArr.Length; i++)
+            {
+                for (var j = i + 1; j < tsArr.Length; j++)
+                {
+                    yield return (tsArr[i], tsArr[j]);
+                }
+            }
+        }
+
+        public static IEnumerable<(long p1, long p2, long p3, long p4)> ConnectedSignatures4(HashSet<(long p1, long p2)> links)
         {
             var conn3 = ConnectedSignatures3(links);
             foreach (var g in conn3.GroupBy(x => new {x.p1, x.p2}))
             {
-                var p2Pairs = g.Select(x => x.p3).Choose(2);
-                foreach (var pair in p2Pairs)
+                var pairs = Choose2(g.Select(x => x.p3));
+                foreach (var pair in pairs)
                 {
-                    var l = (pair.Min(), pair.Max());
-                    if (links.Contains(l))
+                    if (links.Contains(pair) || links.Contains((pair.b, pair.a)))
                     {
-                        yield return (g.Key.p1, g.Key.p2, l.Item1, l.Item2);
+                        yield return (g.Key.p1, g.Key.p2, pair.a, pair.b);
                     }
                 }
             }
         }
 
-        public static IEnumerable<(long p1, long p2, long p3, long p4, long p5)> ConnectedSignatures5(List<(long p1, long p2)> links)
+        public static IEnumerable<(long p1, long p2, long p3, long p4, long p5)> ConnectedSignatures5(HashSet<(long p1, long p2)> links)
         {
-            var conn3 = ConnectedSignatures4(links);
-            foreach (var g in conn3.GroupBy(x => new { x.p1, x.p2, x.p3 }))
+            var conn4 = ConnectedSignatures4(links);
+            foreach (var g in conn4.GroupBy(x => new { x.p1, x.p2, x.p3 }))
             {
-                var p2Pairs = g.Select(x => x.p4).Choose(2);
-                foreach (var pair in p2Pairs)
+                var pairs = Choose2(g.Select(x => x.p4));
+                foreach (var pair in pairs)
                 {
-                    var l = (pair.Min(), pair.Max());
-                    if (links.Contains(l))
+                    if (links.Contains(pair) || links.Contains((pair.b, pair.a)))
                     {
-                        yield return (g.Key.p1, g.Key.p2, g.Key.p3, l.Item1, l.Item2);
+                        yield return (g.Key.p1, g.Key.p2, g.Key.p3, pair.a, pair.b);
                     }
                 }
             }
