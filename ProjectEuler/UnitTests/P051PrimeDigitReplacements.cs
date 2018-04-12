@@ -14,12 +14,6 @@ namespace UnitTests
     public class P051PrimeDigitReplacements
     {
         [TestMethod]
-        public void Version1_Practise()
-        {
-            V1.Replacements(13).ShouldBeNull();
-        }
-
-        [TestMethod]
         public void Version1_Practise_6()
         {
             V1.Main().First(x => x.Length == 6).First().ShouldBe(13);

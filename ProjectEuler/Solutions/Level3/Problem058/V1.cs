@@ -53,7 +53,7 @@ namespace Solutions.Problem058
                 d += 2;
             }
 
-            return d + 1;
+            return d - 1;
         }
     }
 }
