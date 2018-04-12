@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Solutions.Problem018
+﻿namespace Solutions.Problem018
 {
     public class Node
     {
