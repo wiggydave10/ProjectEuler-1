@@ -17,6 +17,7 @@ function Stepper() {
         } else if (currIdx >= nodes.length - 1) {
             currPrime = { id: nextPrime(currPrime.id) };
             currIdx = -1;
+            return true;
 
         } else {
             prevLinkValid = addLink(currPrime, nodes[currIdx], links);
