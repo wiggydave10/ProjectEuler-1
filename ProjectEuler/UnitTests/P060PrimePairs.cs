@@ -19,5 +19,11 @@ namespace UnitTests
         {
             V1.Main();
         }
+
+        [TestMethod]
+        public void Version2_Answer()
+        {
+            V2.Main();
+        }
     }
 }

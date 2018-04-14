@@ -56,6 +56,15 @@ namespace Solutions.Utils
             return n >= 0 && IsCoprimeOf(n, GetPrimes().TakeWhile(p => p < n/2));
         }
 
+        public static long NextPrimeBasic(long n)
+        {
+            while (!IsPrimeBasic(++n))
+            {
+            }
+
+            return n;
+        }
+
         public static bool IsPrimeBasic(long n)
         {
             var limit = (long)Math.Sqrt(n);

@@ -87,6 +87,7 @@
     <Compile Include="Level2\Problem028\V3.cs" />
     <Compile Include="Level2\Problem028\V2.cs" />
     <Compile Include="Level2\Problem028\V1.cs" />
+    <Compile Include="Level3\Problem060\V2.cs" />
     <Compile Include="Level3\Problem060\V1.cs" />
     <Compile Include="Level3\Problem058\V1.cs" />
     <Compile Include="Level3\Problem057\V1.cs" />
@@ -144,6 +145,7 @@
     <Content Include="Level3\Problem059\Research\characterFrequencies.html" />
     <Content Include="Level3\Problem059\Research\XOR.html" />
     <Content Include="Level3\Problem060\Vis\3D\3d-force-graph.min.js" />
+    <Content Include="Level3\Problem060\Vis\3D\index2.js" />
     <Content Include="Level3\Problem060\Vis\3D\index.html" />
     <Content Include="Level3\Problem060\Vis\3D\index.js" />
     <Content Include="Level3\Problem060\Vis\3D\papaparse.min.js" />
