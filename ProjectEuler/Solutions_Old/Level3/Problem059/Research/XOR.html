@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <div>
+        <label for="xORColoring">xORColoring</label>
+        <input id="xORColoring" type="radio" name="colouring" value="xORColoring" checked="checked" />
+        <label for="difColoring">difColoring</label>
+        <input id="difColoring" type="radio" name="colouring" value="difColoring" />
+    </div>
+
+
+    <table>
+        <tr>
+            <td>Label</td>
+            <td>Binary</td>
+            <td>Decimal</td>
+        </tr>
+        <tr>
+            <td>Character</td>
+            <td id="charByte"></td>
+            <td id="char"></td>
+        </tr>
+        <tr>
+            <td>Key</td>
+            <td id="keyByte"></td>
+            <td id="keyChar"></td>
+        </tr>
+        <tr>
+            <td>XOR</td>
+            <td id="xOrByte"></td>
+            <td id="xOr"></td>
+        </tr>
+    </table>
+    <script>
+        var scale = 2;
+        var $canvas = $('<canvas>').attr('width', 256 * scale).attr('height', 256 * scale).css('border', '5px solid red');
+        $('body').prepend($canvas);
+
+        var coloringFn = xORColoring;
+
+        var ctx = $canvas[0].getContext('2d');
+
+        var $labelCh = $('#char');
+        var $labelKeyCh = $('#keyChar');
+        var $xOr = $('#xOr');
+
+        var $labelChByte = $('#charByte');
+        var $labelKeyChByte = $('#keyByte');
+        var $xOrByte = $('#xOrByte');
+
+        $canvas.mousemove(function (e) {
+            var x = Math.floor(e.offsetX / scale);
+            var y = Math.floor(e.offsetY / scale);
+            var xor = y ^ x;
+
+            $labelCh.text(y);
+            $labelKeyCh.text(x);
+            $xOr.text(xor);
+
+            $labelChByte.text(y.toString(2).padStart(8, "0"));
+            $labelKeyChByte.text(x.toString(2).padStart(8, "0"));
+            $xOrByte.text(xor.toString(2).padStart(8, "0"));
+        });
+
+        function xORColoring(ch, key) {
+            return ch ^ key;
+        }
+
+        function difColoring(ch, key) {
+            return ((ch ^ key) < ch) * 255;
+        }
+
+        $('input[name="colouring"]').click(function () {
+            coloringFn = window[$(this).val()];
+            draw();
+        });
+
+        function draw() {
+            var imgData = ctx.createImageData(256 * scale, 256 * scale);
+            for (var i = 0; i < imgData.data.length; i += 4) {
+                var scaledI = Math.floor(i / 4 / scale);
+                var x = scaledI % 256;
+                var y = Math.floor(scaledI / 256 / scale);
+
+                var color = coloringFn(x, y);
+
+                imgData.data[i + 0] = color; // x = key, y = char
+                imgData.data[i + 1] = color;
+                imgData.data[i + 2] = color;
+                imgData.data[i + 3] = 255;
+            }
+            ctx.putImageData(imgData, 0, 0);
+        }
+
+        draw();
+
+    </script>
+</body>
+</html>
