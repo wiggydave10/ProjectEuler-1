@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Text.RegularExpressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shouldly;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Solutions.Problem060;
-using Solutions.Utils;
 
 namespace UnitTests
 {

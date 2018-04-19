@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Solutions.Utils
 {
@@ -78,11 +75,11 @@ namespace Solutions.Utils
 
         private static IEnumerable<long> GetFilePrimes()
         {
-            var primeFilename = ConfigurationManager.AppSettings[PrimesFileKey];
-            if (File.Exists(primeFilename))
-            {
-                return File.ReadAllText(primeFilename).Split(',').Select(long.Parse);
-            }
+            //var primeFilename = ConConfigurationManager.AppSettings[PrimesFileKey];
+            //if (File.Exists(primeFilename))
+            //{
+            //    return File.ReadAllText(primeFilename).Split(',').Select(long.Parse);
+            //}
 
             return null;
         }

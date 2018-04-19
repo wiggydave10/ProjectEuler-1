@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
 using Solutions.Utils;
 
 namespace Solutions.Problem020
